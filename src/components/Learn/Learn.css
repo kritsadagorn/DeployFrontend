@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    @apply font-Ysabeau-SC
+}
+.learn-container {
+    @apply dark:bg-neutral-900 bg-gray-50 min-h-screen pt-10 mt-[30px] md:mt-[50px];
+}
+
+.header-section {
+    @apply mb-8 px-4;
+}
+
+.subtitle {
+    @apply opacity-70;
+}
+
+/* Additional custom styles can be added here if needed */

@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========== Base Navbar Styling ========== */
+.navbar-container {
+  @apply fixed top-0 left-0 w-full bg-neutral-800 bg-opacity-90 backdrop-blur-sm z-50 border-b border-white border-opacity-10;
+}
+
+.navbar-wrapper {
+  @apply relative flex flex-col px-4 py-2 mx-auto max-w-7xl;
+  @apply md:flex-row md:items-center md:justify-between md:px-6;
+}
+
+/* ========== Logo Styling ========== */
+.navbar-top {
+  @apply flex items-center justify-between w-full;
+  @apply md:w-auto;
+}
+
+.navbar-logo {
+  @apply flex items-center;
+}
+
+.logo {
+  @apply h-8 w-auto transition-all duration-300 ease-in-out;
+  @apply md:h-10;
+}
+
+.logo:hover {
+  @apply scale-105;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+}
+
+/* ========== Mobile Toggle Button ========== */
+.mobile-menu-toggle {
+  @apply flex md:hidden text-white text-xl cursor-pointer p-2 rounded-full transition-all;
+  @apply hover:bg-neutral-700;
+}
+
+/* ========== Mobile Menu ========== */
+.mobile-menu {
+  @apply hidden flex-col w-full mt-4 pb-3 overflow-hidden;
+  @apply md:hidden;
+}
+
+.mobile-menu.open {
+  @apply flex;
+}
+
+.mobile-nav {
+  @apply flex flex-col items-center space-y-2;
+}
+
+.mobile-link {
+  @apply block w-full py-2 px-4 text-center text-white font-medium tracking-wide rounded-lg transition-all duration-300;
+  @apply bg-neutral-700/50 hover:bg-neutral-600 hover:shadow hover:scale-102;
+  font-family: 'Kanit', sans-serif;
+  transform-origin: center;
+  font-size: 0.9rem;
+}
+
+.mobile-settings {
+  @apply mt-4 flex flex-col items-center space-y-2;
+}
+
+.mobile-theme-toggle, 
+.mobile-language {
+  @apply flex items-center justify-center space-x-2 py-2 px-4 rounded-lg bg-neutral-700/70 text-white cursor-pointer transition-all duration-300;
+  @apply hover:bg-neutral-600 hover:shadow hover:scale-102;
+}
+
+.mobile-theme-toggle span, 
+.mobile-language span {
+  @apply text-xs font-medium;
+}
+
+/* ========== Desktop Navigation ========== */
+.desktop-nav {
+  @apply hidden md:flex items-center justify-center flex-1;
+}
+
+.desktop-nav ul {
+  @apply flex items-center space-x-1;
+}
+
+.nav-link {
+  @apply block;
+}
+
+.nav-text {
+  @apply inline-block font-light text-sm text-slate-200 px-3 py-2 rounded-xl transition-all duration-300;
+  @apply hover:bg-neutral-700 hover:text-white;
+  font-family: 'Kanit', sans-serif;
+}
+
+/* ========== Desktop Settings ========== */
+.desktop-settings {
+  @apply hidden md:flex items-center space-x-2;
+}
+
+.theme-toggle {
+  @apply p-2 cursor-pointer text-lg rounded-full transition-all hover:bg-neutral-700;
+}
+
+.theme-icon {
+  @apply text-gray-400;
+}
+
+.theme-icon.active {
+  @apply text-yellow-400;
+}
+
+.language-selector {
+  @apply px-3 py-1.5 text-sm rounded-full border border-white border-opacity-20 cursor-pointer transition-all;
+  @apply hover:bg-neutral-700 text-white;
+  font-family: 'Kanit', sans-serif;
+}
+
+/* ========== Dark Mode ========== */
+.dark body {
+  @apply bg-neutral-900 text-white;
+}
+
+/* ========== Animations ========== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-10px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.mobile-menu.open {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.mobile-menu.open .mobile-link {
+  animation: slideIn 0.4s ease-out backwards;
+}
+
+.mobile-menu.open .mobile-link:nth-child(1) { animation-delay: 0.05s; }
+.mobile-menu.open .mobile-link:nth-child(2) { animation-delay: 0.1s; }
+.mobile-menu.open .mobile-link:nth-child(3) { animation-delay: 0.15s; }
+.mobile-menu.open .mobile-link:nth-child(4) { animation-delay: 0.2s; }
+
+.mobile-menu.open .mobile-settings > * {
+  animation: slideIn 0.4s ease-out backwards;
+}
+
+.mobile-menu.open .mobile-theme-toggle { animation-delay: 0.25s; }
+.mobile-menu.open .mobile-language { animation-delay: 0.3s; }
+
+/* Add glass effect to mobile menu */
+.mobile-menu.open {
+  @apply bg-neutral-800/30 backdrop-blur-md rounded-lg px-3 py-2 border border-white/5;
+}
